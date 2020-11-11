@@ -1,7 +1,7 @@
 {
   "name": "ntn-boilerplate-multi-lang",
   "version": "1.0.0",
-  "description": "Nuxt-Tailwind-NetlifyCMS boilerplate",
+  "description": "Nuxt-NetlifyCMS boilerplate",
   "author": "Helder Pinto @ yarilabs <helder@yarilabs.com>",
   "scripts": {
     "dev": "nuxt",
