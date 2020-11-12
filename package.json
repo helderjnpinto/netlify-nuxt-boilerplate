@@ -16,7 +16,9 @@
   "license": "MIT",
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.6",
-    "nuxt": "^2.14.6"
+    "@nuxtjs/sitemap": "^2.4.0",
+    "nuxt": "^2.14.6",
+    "nuxt-i18n": "^6.15.4"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^1.1.1",

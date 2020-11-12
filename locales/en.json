@@ -1,0 +1,9 @@
+{
+    "welcome": "Hello, this is in English!",
+    "date": "What is the date today? {date}",
+    "privacy": "View privacy policy",
+    "thisIs": "This is page {page}",
+    "projects": "Projects",
+    "blog": "Blog",
+    "home": "Home"
+}
