@@ -2,13 +2,13 @@
   <nav class="">
     <ul class="flex fixed top-0 inset-x-0 p-3">
       <li class="flex-1 mr-2">
-        <nuxt-link class="btn block" to="/">Home</nuxt-link>
+        <nuxt-link class="btn block" :to="localePath('/')"> {{ $t('home') }} </nuxt-link>
       </li>
       <li class="flex-1 mr-2">
-        <nuxt-link class="btn block" to="/blog">Blog</nuxt-link>
+        <nuxt-link class="btn block" :to="localePath('/blog')"> {{ $t('blog') }} </nuxt-link>
       </li>
       <li class="flex-1">
-        <nuxt-link class="btn block" to="/projects">Projects</nuxt-link>
+        <nuxt-link class="btn block" :to="localePath('/projects')"> {{ $t('projects') }} </nuxt-link>
       </li>
     </ul>
   </nav>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
 }
 </script>
 

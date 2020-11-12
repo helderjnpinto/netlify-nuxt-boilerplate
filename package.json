@@ -1,8 +1,8 @@
 {
-  "name": "ntn-boilerplate",
+  "name": "ntn-boilerplate-multi-lang",
   "version": "1.0.0",
-  "description": "Nuxt-Tailwind-NetlifyCMS boilerplate",
-  "author": "Sven Parker <sven@svenparker.com> (https://svenparker.com)",
+  "description": "Nuxt-NetlifyCMS boilerplate",
+  "author": "Helder Pinto @ yarilabs <helder@yarilabs.com>",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -11,12 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/knogobert/ntn-boilerplate#readme"
+    "url": "https://github.com/helderjnpinto/netlify-nuxt-boilerplate#readme"
   },
   "license": "MIT",
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.6",
-    "nuxt": "^2.14.6"
+    "@nuxtjs/sitemap": "^2.4.0",
+    "nuxt": "^2.14.6",
+    "nuxt-i18n": "^6.15.4"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^1.1.1",

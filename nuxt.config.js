@@ -62,17 +62,71 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/i18n.js' }],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
+  buildModules: [
+    '@nuxtjs/color-mode',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/svg',
+    '@nuxtjs/pwa',
+    // sitemap should always come last
+    '@nuxtjs/sitemap'
+  ],
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/markdownit', 'nuxt-purgecss'],
+  modules: ['@nuxtjs/markdownit', 'nuxt-purgecss', 'nuxt-i18n'],
   markdownit: {
     injected: true
+  },
+
+  /*
+   ** i18n config
+   */
+  i18n: {
+    baseUrl: process.env.URL,
+    seo: true,
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English'
+      },
+      {
+        code: 'pt',
+        iso: 'pt-PT',
+        name: 'Português'
+      }
+    ],
+    defaultLocale: 'pt',
+    vueI18n: {
+      fallbackLocale: 'pt',
+      messages: {
+        en: require('./locales/en.json'),
+        pt: require('./locales/pt.json')
+      },
+      dateTimeFormats: {
+        en: {
+          long: { year: 'numeric', month: 'long', day: 'numeric' }
+        },
+        pt: {
+          long: { year: 'numeric', month: 'long', day: 'numeric' }
+        }
+      }
+    },
+    strategy: 'prefix_and_default',
+    // Netlify will do the language detection
+    detectBrowserLanguage: false
+  },
+  /*
+   ** Sitemap config
+   */
+  sitemap: {
+    hostname: process.env.URL,
+    trailingSlash: true,
+    i18n: true
   },
   /*
    ** Build configuration
@@ -95,7 +149,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   },
   /*
    ** Custom additions configuration
@@ -148,7 +202,7 @@ export default {
  *   /projects/story-test-story-1
  * ]
  */
-function getDynamicPaths(urlFilepathTable, cwdPath) {
+function getDynamicPaths (urlFilepathTable, cwdPath) {
   console.log('Going to generate dynamicRoutes for these collection types: ', urlFilepathTable)
   const dynamicPaths = [].concat(
     ...Object.keys(urlFilepathTable).map(url => {
