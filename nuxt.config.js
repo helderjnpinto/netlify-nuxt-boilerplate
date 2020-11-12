@@ -100,9 +100,9 @@ export default {
         name: 'Português'
       }
     ],
-    defaultLocale: 'en',
+    defaultLocale: 'pt',
     vueI18n: {
-      fallbackLocale: 'en',
+      fallbackLocale: 'pt',
       messages: {
         en: require('./locales/en.json'),
         pt: require('./locales/pt.json')

@@ -68,88 +68,93 @@ collections:
     slug: "{{project_type}}-{{slug}}"
     preview_path: "projects/{{slug}}"
     fields:
-      - {
-          label: "Project Type",
-          name: "project_type",
-          widget: "select",
-          default: "story",
-          options:
-            [
-              { label: "Story", value: "story" },
-              { label: "Photo", value: "photo" },
-            ],
-        }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "Description",
-          name: "description",
-          widget: "string",
-          required: false,
-        }
-      - { label: "Content", name: "body", widget: "markdown", required: false }
-      - {
-          label: "Cover Image",
-          name: "cover",
-          widget: "image",
-          required: false,
-          allow_multiple: false,
-        }
-      - {
-          label: "Gallery",
-          name: "gallery",
-          widget: "list",
-          required: false,
-          summary: "{{fields.image}}",
-          field: { label: "Image", name: "image", widget: "image" },
-        }
-  # - name: 'story_projects'
-  #   # identifier_field: name
-  #   label: 'Story Projects'
-  #   label_singular: 'Story Project'
-  #   folder: 'assets/content/stories'
-  #   create: true
-  #   format: 'json'
-  #   slug: '{{slug}}'
-  #   preview_path: 'stories/{{slug}}'
-  #   # filter: { field: 'project_type', value: 'story' }
-  #   fields:
-  #     # - { label: 'Project Type', name: 'project_type', widget: 'select', options: ['story', 'photo'] }
-  #     - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-  #     - { label: 'Title', name: 'title', widget: 'string' }
-  #     - { label: 'Description', name: 'description', widget: 'string', required: false }
-  #     - { label: 'Content', name: 'body', widget: 'markdown', required: false }
-  #     - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
-  #     - {
-  #         label: 'Gallery',
-  #         name: 'gallery',
-  #         widget: 'list',
-  #         required: false,
-  #         summary: '{{fields.image}}',
-  #         field: { label: 'Image', name: 'image', widget: 'image' },
-  #       }
-  # - name: 'photo_projects'
-  #   # identifier_field: name
-  #   label: 'Photo Projects'
-  #   label_singular: 'Photo Project'
-  #   folder: 'assets/content/photos'
-  #   create: true
-  #   format: 'json'
-  #   slug: '{{slug}}'
-  #   preview_path: 'photos/{{slug}}'
-  #   # filter: { field: 'project_type', value: 'photo' }
-  #   fields:
-  #     # - { label: 'Project Type', name: 'project_type', widget: 'select', options: ['story', 'photo'] }
-  #     - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-  #     - { label: 'Title', name: 'title', widget: 'string' }
-  #     - { label: 'Description', name: 'description', widget: 'string', required: false }
-  #     - { label: 'Content', name: 'body', widget: 'markdown', required: false }
-  #     - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
-  #     - {
-  #         label: 'Gallery',
-  #         name: 'gallery',
-  #         widget: 'list',
-  #         required: false,
-  #         summary: '{{fields.image}}',
-  #         field: { label: 'Image', name: 'image', widget: 'image' },
-  #       }
+      - label: "PT"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {
+              label: "Project Type",
+              name: "project_type",
+              widget: "select",
+              default: "story",
+              options:
+                [
+                  { label: "Story", value: "story" },
+                  { label: "Photo", value: "photo" },
+                ],
+            }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Description",
+              name: "description",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Content",
+              name: "body",
+              widget: "markdown",
+              required: false,
+            }
+          - {
+              label: "Cover Image",
+              name: "cover",
+              widget: "image",
+              required: false,
+              allow_multiple: false,
+            }
+          - {
+              label: "Gallery",
+              name: "gallery",
+              widget: "list",
+              required: false,
+              summary: "{{fields.image}}",
+              field: { label: "Image", name: "image", widget: "image" },
+            }
+      - label: "EN"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {
+              label: "Project Type",
+              name: "project_type",
+              widget: "select",
+              default: "story",
+              options:
+                [
+                  { label: "Story", value: "story" },
+                  { label: "Photo", value: "photo" },
+                ],
+            }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Description",
+              name: "description",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Content",
+              name: "body",
+              widget: "markdown",
+              required: false,
+            }
+          - {
+              label: "Cover Image",
+              name: "cover",
+              widget: "image",
+              required: false,
+              allow_multiple: false,
+            }
+          - {
+              label: "Gallery",
+              name: "gallery",
+              widget: "list",
+              required: false,
+              summary: "{{fields.image}}",
+              field: { label: "Image", name: "image", widget: "image" },
+            }
