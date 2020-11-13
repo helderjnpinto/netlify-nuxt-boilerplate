@@ -1,5 +1,9 @@
 # 🏗️ Boilerplate for Nuxt, Tailwind & NetlifyCMS
 
+<!-- To remove -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f75f34d5-4fcd-43c3-ad05-c6beebd47514/deploy-status)](https://app.netlify.com/sites/brave-franklin-eb5e16/deploys)
+
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cb2d4cc5-8a65-4940-81ce-4456ff96e6db/deploy-status)](https://app.netlify.com/sites/ntn-boilerplate/deploys) ← replace with [your own](https://app.netlify.com/sites/YOUR_NETLIFY_SITE_SLUG/settings/general#deploy-status-badge)
 
 **[Live Demo](https://ntn-boilerplate.netlify.app/)**
