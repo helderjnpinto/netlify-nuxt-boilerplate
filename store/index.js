@@ -1,4 +1,4 @@
-import { SET_BLOG_POSTS, SET_PROJECT_POSTS } from './mutations.type'
+import { SET_BLOG_POSTS, SET_PROJECT_POSTS, RELOAD_LANG_DEPS } from './mutations.type'
 
 export const state = () => ({
   blogPosts: [],
@@ -14,10 +14,30 @@ export const mutations = {
   }
 }
 
+const reloadLangContent = async (locale, commit) => {
+  // Blog collection type
+  try {
+    let blogFiles = await require.context('~/assets/content/blog/', false, /\.json$/)
+    await commit(SET_BLOG_POSTS, actions.getPosts(locale, blogFiles))
+  } catch (error) {
+    console.log(error)
+  }
+
+  // Project collection type
+  try {
+    let projectFiles = await require.context('~/assets/content/projects/', false, /\.json$/)
+    await commit(SET_PROJECT_POSTS, actions.getPosts(locale, projectFiles))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const actions = {
+  async [RELOAD_LANG_DEPS] ({ commit }) {
+    const locale = this.$i18n.locale || 'pt'
+    await reloadLangContent(locale, commit)
+  },
   getPosts (locale, files) {
-    console.log('getPosts -> locale', locale)
-    console.log('getPosts -> files', files.keys())
     return files
       .keys()
       .filter(key => key.endsWith(`.${locale}.json`))
@@ -27,24 +47,9 @@ export const actions = {
         return res
       })
   },
-  async nuxtServerInit (args) {
-    const { commit } = args
-    const locale = `${this.$i18n.locale || 'pt'}`
-    // Blog collection type
-    try {
-      let blogFiles = await require.context('~/assets/content/blog/', false, /\.json$/)
-      await commit(SET_BLOG_POSTS, actions.getPosts(locale, blogFiles))
-    } catch (error) {
-      console.log(error)
-    }
-
-    // Project collection type
-    try {
-      let projectFiles = await require.context('~/assets/content/projects/', false, /\.json$/)
-      await commit(SET_PROJECT_POSTS, actions.getPosts(locale, projectFiles))
-    } catch (error) {
-      console.log(error)
-    }
+  async nuxtServerInit ({ commit }) {
+    const locale = this.$i18n.locale || 'pt'
+    reloadLangContent(locale, commit)
     // ? When adding/changing NetlifyCMS collection types, make sure to:
     // ? 1. Add/rename exact slugs here
     // ? 2. Add/rename the MUTATION_TYPE names in `./mutations.type.js`
