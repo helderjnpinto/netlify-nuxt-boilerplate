@@ -16,7 +16,7 @@ const dynamicRoutes = getDynamicPaths(
 )
 
 export default {
-  mode: 'universal',
+  ssr: true,
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
     url:

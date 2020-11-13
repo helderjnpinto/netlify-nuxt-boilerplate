@@ -59,9 +59,10 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "projects"
-    # identifier_field: name
+    identifier_field: name
     label: "Projects"
     label_singular: "Project"
+    description: "All company Projects"
     folder: "assets/content/projects"
     create: true
     format: "json"
