@@ -47,6 +47,7 @@ export default {
     ] // ? Imports the font 'Karla' and is optimized by the netlify plugin 'Subfont'
   },
   generate: {
+    target: 'static',
     routes: dynamicRoutes,
     fallback: true,
     subFolders: false
