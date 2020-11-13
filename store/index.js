@@ -15,22 +15,36 @@ export const mutations = {
 }
 
 export const actions = {
-  getPosts (files) {
-    return files.keys().map(key => {
-      let res = files(key)
-      res.slug = key.slice(2, -5)
-      return res
-    })
+  getPosts (locale, files) {
+    console.log('getPosts -> locale', locale)
+    console.log('getPosts -> files', files.keys())
+    return files
+      .keys()
+      .filter(key => key.endsWith(`.${locale}.json`))
+      .map(key => {
+        let res = files(key)
+        res.slug = key.slice(2, -5)
+        return res
+      })
   },
-  async nuxtServerInit ({ commit }) {
+  async nuxtServerInit (args) {
+    const { commit } = args
+    const locale = `${this.$i18n.locale || 'pt'}`
     // Blog collection type
-    let blogFiles = await require.context('~/assets/content/blog/', false, /\.json$/)
-    await commit(SET_BLOG_POSTS, actions.getPosts(blogFiles))
+    try {
+      let blogFiles = await require.context('~/assets/content/blog/', false, /\.json$/)
+      await commit(SET_BLOG_POSTS, actions.getPosts(locale, blogFiles))
+    } catch (error) {
+      console.log(error)
+    }
 
     // Project collection type
-    let projectFiles = await require.context('~/assets/content/projects/', false, /\.json$/)
-    await commit(SET_PROJECT_POSTS, actions.getPosts(projectFiles))
-
+    try {
+      let projectFiles = await require.context('~/assets/content/projects/', false, /\.json$/)
+      await commit(SET_PROJECT_POSTS, actions.getPosts(locale, projectFiles))
+    } catch (error) {
+      console.log(error)
+    }
     // ? When adding/changing NetlifyCMS collection types, make sure to:
     // ? 1. Add/rename exact slugs here
     // ? 2. Add/rename the MUTATION_TYPE names in `./mutations.type.js`
