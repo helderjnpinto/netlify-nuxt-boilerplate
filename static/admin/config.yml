@@ -75,7 +75,12 @@ collections:
     #   preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          i18n: duplicate,
+        }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -101,8 +106,14 @@ collections:
               { label: "Story", value: "story" },
               { label: "Photo", value: "photo" },
             ],
+          i18n: duplicate,
         }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          i18n: duplicate,
+        }
       - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Description",
@@ -117,6 +128,7 @@ collections:
           widget: "image",
           required: false,
           allow_multiple: false,
+          i18n: duplicate,
         }
       - {
           label: "Gallery",
@@ -125,4 +137,5 @@ collections:
           required: false,
           summary: "{{fields.image}}",
           field: { label: "Image", name: "image", widget: "image" },
+          i18n: duplicate,
         }
