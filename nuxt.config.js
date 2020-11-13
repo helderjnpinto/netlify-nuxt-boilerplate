@@ -51,6 +51,16 @@ export default {
     fallback: true,
     subFolders: false
   },
+  // ignore if is target: static
+  ignore: [
+    '.nuxt', // buildDir
+    'static', // dir.static
+    'dist', // generate.dir
+    'node_modules',
+    '.**/*',
+    '.*',
+    'README.md'
+  ],
   /*
    ** Customize the progress-bar color
    */
@@ -203,7 +213,6 @@ export default {
  * ]
  */
 function getDynamicPaths (urlFilepathTable, cwdPath) {
-  console.log('Going to generate dynamicRoutes for these collection types: ', urlFilepathTable)
   const dynamicPaths = [].concat(
     ...Object.keys(urlFilepathTable).map(url => {
       const filepathGlob = urlFilepathTable[url]
