@@ -87,6 +87,22 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
+  - name: "test"
+    folder: "content"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    create: true
+    i18n: true
+    fields:
+      - {
+          label: Author,
+          name: author,
+          widget: string,
+          default: "tester",
+          i18n: duplicate,
+        }
+
   - name: "projects"
     identifier_field: name
     label: "Projects"
