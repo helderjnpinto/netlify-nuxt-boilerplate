@@ -9,6 +9,14 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+# when using the default proxy server port
+# local_backend: true
+local_backend:
+  # when using a custom proxy server port
+  url: http://localhost:8082/api/v1
+  # when accessing the local site from a host other than 'localhost' or '127.0.0.1'
+  allowed_hosts: ["192.168.0.1"]
+
 i18n:
   # Required and can be one of multiple_folders, multiple_files or single_file
   # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
@@ -75,12 +83,7 @@ collections:
     #   preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "Publish Date",
-          name: "date",
-          widget: "datetime",
-          i18n: duplicate,
-        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -106,14 +109,8 @@ collections:
               { label: "Story", value: "story" },
               { label: "Photo", value: "photo" },
             ],
-          i18n: duplicate,
         }
-      - {
-          label: "Publish Date",
-          name: "date",
-          widget: "datetime",
-          i18n: duplicate,
-        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Description",
@@ -128,7 +125,6 @@ collections:
           widget: "image",
           required: false,
           allow_multiple: false,
-          i18n: duplicate,
         }
       - {
           label: "Gallery",
@@ -137,5 +133,4 @@ collections:
           required: false,
           summary: "{{fields.image}}",
           field: { label: "Image", name: "image", widget: "image" },
-          i18n: duplicate,
         }

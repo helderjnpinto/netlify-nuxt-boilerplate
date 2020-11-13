@@ -28,6 +28,7 @@
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
     "netlify-cli": "^2.64.1",
+    "netlify-cms": "^2.10.68",
     "nuxt-purgecss": "^1.0.0",
     "path": "^0.12.7",
     "postcss-import": "^12.0.1",
