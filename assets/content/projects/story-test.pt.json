@@ -1,7 +1,7 @@
- {
-   "date": "2020-09-08T20:35:29.027Z",
-   "project_type": "História",
-   "title": "Test de História",
-   "description": "Texto descritivo curto",
-   "body": "Extenso ** markdown **  - * texto de conteúdo ativado *."
- }
+{
+  "date": "2020-09-08T20:35:29.027Z",
+  "project_type": "story",
+  "title": "Test de História",
+  "description": "Texto descritivo curto",
+  "body": "Extenso ** markdown **  - * texto de conteúdo ativado *."
+}
