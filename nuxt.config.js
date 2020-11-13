@@ -17,7 +17,6 @@ const dynamicRoutes = getDynamicPaths(
 
 export default {
   ssr: true,
-  target: 'static',
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
     url:
@@ -48,6 +47,7 @@ export default {
     ] // ? Imports the font 'Karla' and is optimized by the netlify plugin 'Subfont'
   },
   generate: {
+    target: 'static',
     routes: dynamicRoutes,
     fallback: true,
     subFolders: false
