@@ -1,35 +1,28 @@
 <template>
-  <nav class="">
-    <ul class="flex fixed top-0 inset-x-0 p-3">
-      <li class="flex-1 mr-2">
-        <nuxt-link class="btn block" :to="localePath('/')"> {{ $t('home') }} </nuxt-link>
-      </li>
-      <li class="flex-1 mr-2">
-        <nuxt-link class="btn block" :to="localePath('/blog')"> {{ $t('blog') }} </nuxt-link>
-      </li>
-      <li class="flex-1">
-        <nuxt-link class="btn block" :to="localePath('/projects')"> {{ $t('projects') }} </nuxt-link>
-      </li>
-    </ul>
-  </nav>
+  <Nav />
 </template>
 
 <script>
+import Nav from './Nav.vue'
+
 export default {
   name: 'Header',
+  components: {
+    Nav,
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
 .nuxt-link-exact-active {
-  @apply text-accent-100 bg-accent bg-opacity-20;
+  @apply text-primary-200 bg-primary;
   &:hover {
-    @apply text-white bg-accent-600;
+    @apply text-white bg-primary-600;
   }
 }
 .light-mode {
   & .nuxt-link-exact-active {
-    @apply text-accent-600;
+    @apply text-primary-600;
     &:hover {
       @apply text-white;
     }
